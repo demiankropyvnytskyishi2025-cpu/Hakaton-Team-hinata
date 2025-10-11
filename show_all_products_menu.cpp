@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 struct Product {
     int id;
     string name;
+
     int category;
     double price;
 };
@@ -15,6 +17,7 @@ void show_all_products_menu() {
     cout << "1. Electronics" << endl;
     cout << "2. Clothing" << endl;
     cout << "3. Home & Kitchen" << endl;
+
     vector<Product> product_catalogue = {
         {1, "Smartphone", 1, 699.99},
         {2, "Laptop", 1, 999.99},
@@ -33,6 +36,7 @@ void show_all_products_menu() {
     int category_choice;
     cout << "Select a category (1-3): ";
     cin >> category_choice;
+
     for (int i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].category == category_choice) {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;

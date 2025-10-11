@@ -1,13 +1,16 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
 struct Product {
     int id;
     string name;
+
     int category;
     string category_name;
+
     double price;
     int amount = 100; // Default amount
 };
@@ -17,6 +20,7 @@ void search_for_product() {
     cout << "1. Electronics" << endl;
     cout << "2. Clothing" << endl;
     cout << "3. Home & Kitchen" << endl;
+    
     vector<Product> product_catalogue = {
         {1, "Smartphone", 1, "Electronics", 699.99},
         {2, "Laptop", 1,"Electronics", 999.99},
@@ -35,6 +39,7 @@ void search_for_product() {
     cout<<"what product are you looking for?"<<endl;
     string search_name;
     cin>>search_name;
+
     for (auto& item : product_catalogue) {
         if (item.name == search_name) {
             cout 
@@ -42,16 +47,19 @@ void search_for_product() {
                  << " | Category: " << item.category_name
                  << " | Price: $" << item.price
                  << " | Amount: " << item.amount
+                 << "do you want to buy it? (1 for yes, 0 for no)"
                  << endl;
-                cout << "do you want to buy it? (1 for yes, 0 for no)" << endl;
-                int buy_choice;
-                cin >> buy_choice;
-                if (buy_choice == 1) {
-                    cout << "Thank you for your purchase!" << endl;
-                    item.amount -= 1;
-                } else {
-                    cout << "Maybe next time!" << endl;
-                }
+
+            int buy_choice;
+            cin >> buy_choice;
+            
+            if (buy_choice == 1) {
+                cout << "Thank you for your purchase!" << endl;
+                item.amount -= 1;
+            }
+            else {
+                cout << "Maybe next time!" << endl;
+            }
         }
     }
 }

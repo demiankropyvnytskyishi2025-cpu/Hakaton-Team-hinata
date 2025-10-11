@@ -1,5 +1,3 @@
-// Standard libraries
-
 #include <iostream>
 
 // Program's functionality
@@ -12,9 +10,11 @@
 // TODO: Add xyi C++ super function
 
 using namespace std;
+
 int main() {
     cout << "====Choose an option====" << endl;
     int choice;
+
     do {
         cout << "print 1 if Admin" << endl;
         cout << "print 2 if User" << endl;
@@ -23,13 +23,17 @@ int main() {
 
         if (choice == 1) {
             cout << "You are an Admin" << endl;
-        } else if (choice == 2) {
+        }
+        else if (choice == 2) {
             cout << "You are a User" << endl;
-        } else if (choice == 0) {
+        }
+        else if (choice == 0) {
             cout << "Exiting..." << endl;
-        } else {
+        }
+        else {
             cout << "Invalid choice, please try again." << endl;
         }
     } while (choice != 0);
+
     return 0;
 }
