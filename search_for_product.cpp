@@ -11,7 +11,8 @@ struct Product {
     double price;
     int amount = 100; // Default amount
 };
-int main() {
+
+void search_for_product() {
     cout <<"====All Categories Menu====" << endl;
     cout << "1. Electronics" << endl;
     cout << "2. Clothing" << endl;
@@ -53,7 +54,4 @@ int main() {
                 }
         }
     }
-   
-    return 0;
-
 }

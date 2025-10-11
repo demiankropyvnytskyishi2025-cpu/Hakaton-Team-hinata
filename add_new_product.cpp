@@ -10,7 +10,7 @@ struct Product {
     string category_name;
     double price;
 };
-int main() {
+void add_new_product() {
     cout <<"====All Categories Menu====" << endl;
     cout << "1. Electronics" << endl;
     cout << "2. Clothing" << endl;
@@ -66,8 +66,4 @@ int main() {
              << " | Price: $" << item.price
              << endl;
     }
-
-
-    return 0;
-
 }

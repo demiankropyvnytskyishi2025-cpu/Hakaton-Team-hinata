@@ -10,7 +10,7 @@ struct Product {
     double price;
 };
 
-int main() {
+void show_all_products_menu() {
     cout <<"====All Categories Menu====" << endl;
     cout << "1. Electronics" << endl;
     cout << "2. Clothing" << endl;
@@ -38,5 +38,4 @@ int main() {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
     }
-    return 0;
 }

@@ -1,5 +1,16 @@
+// Standard libraries
+
 #include <iostream>
-#include "xyi.cpp"
+
+// Program's functionality
+
+#include "search_for_product.h"
+#include "show_all_products_menu.h"
+#include "add_new_product.h"
+
+// #include "xyi.cpp"
+// TODO: Add xyi C++ super function
+
 using namespace std;
 int main() {
     cout << "====Choose an option====" << endl;
