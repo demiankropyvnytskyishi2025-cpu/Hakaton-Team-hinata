@@ -6,6 +6,8 @@ using namespace std;
 #include "add_new_product.h"
 #include "products_costing_more_than_1000.h"
 
+#include "user_interface.h"
+
 int main() {
     cout << "====Choose an option====" << endl;
     int choice;
@@ -21,6 +23,7 @@ int main() {
         }
         else if (choice == 2) {
             cout << "You are a User" << endl;
+            user_choice();
         }
         else if (choice == 0) {
             cout << "Exiting..." << endl;
