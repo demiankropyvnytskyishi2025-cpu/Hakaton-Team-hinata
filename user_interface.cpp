@@ -11,7 +11,7 @@ void user_choice() {
     cout << "1 - search for a product";
     do{
         cin >> choice;
-    }while(choice != 1 || choice != 2 || choice != 3);
+    }while(choice != 1 && choice != 2 && choice != 3);
     if (choice == 1){
         cout << "You've chosen the option for searching the product";
         search_for_product();
