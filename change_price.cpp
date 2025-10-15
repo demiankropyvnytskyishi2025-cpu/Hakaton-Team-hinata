@@ -61,9 +61,11 @@ void change_price() {
                 item.price = new_price;
                 cout << "Price updated successfully!" << endl;
             }
-            else {
+            else if (change_choice == 0) {
                 cout << "No changes made." << endl;
             }
+            else {
+                cout << "Invalid choice." << endl;  
         }
     }
 }
