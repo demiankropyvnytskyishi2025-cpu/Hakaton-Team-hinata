@@ -14,8 +14,8 @@ if "%FILES%"=="" (
     exit /b 1
 )
 
-echo Running: g++ -fdiagnostics-color=always -g %FILES% -o main.exe
-g++ -fdiagnostics-color=always -g %FILES% -o main.exe
+echo Running: g++ -Iinclude -fdiagnostics-color=always -g %FILES% -o main.exe
+g++ -Iinclude -fdiagnostics-color=always -g %FILES% -o main.exe
 
 if %errorlevel% neq 0 (
     echo.
