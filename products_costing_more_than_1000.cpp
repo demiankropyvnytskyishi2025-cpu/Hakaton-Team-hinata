@@ -5,7 +5,7 @@ using namespace std;
 #include <string>
 #include "product_data.h"
 
-void show_all_products_menu() {
+void search_prod_more_than_1000() {
     int category_choice;
     cout << "Select a category (1-3): ";
     cin >> category_choice;

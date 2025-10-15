@@ -1,15 +1,10 @@
 #include <iostream>
-
-// Program's functionality
+using namespace std;
 
 #include "search_for_product.h"
 #include "show_all_products_menu.h"
 #include "add_new_product.h"
-
-// #include "xyi.cpp"
-// TODO: Add xyi C++ super function
-
-using namespace std;
+#include "products_costing_more_than_1000.h"
 
 int main() {
     cout << "====Choose an option====" << endl;
