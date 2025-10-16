@@ -2,15 +2,18 @@
 #include <string>
 
 #include "product_data.h"
-#include "show_all_products_menu.h"
-#include "search_for_product.h"
-#include "add_new_product.h"
-#include "change_price_of_product.h"
-#include "delete_product.h"
-#include "buy_product.h"
-#include "number_of_products.h"
-#include "products_less_than_100.h"
-#include "products_costing_more_than_1000.h"
+#include "admin_functions.h"
+#include "common_functions.h"
+
+// #include "show_all_products_menu.h"
+// #include "search_for_product.h"
+// #include "add_new_product.h"
+// #include "change_price_of_product.h"
+// #include "delete_product.h"
+// #include "buy_product.h"
+// #include "number_of_products.h"
+// #include "products_less_than_100.h"
+// #include "products_costing_more_than_1000.h"
 
 using namespace std;
 
@@ -50,7 +53,7 @@ void admin_choice() {
         count_the_total_number_of_products();
     } else if(choice == 7){
         cout << "You've chosen the option for counting the number of products costing less than 100" << endl;
-        count_the_number_of_products_cheaper_than_100();
+        discount_for_expensive_products();
     } else if(choice == 8){
         cout << "You've chosen the option for making a discount for products costing more than 1000" << endl;
         discount_for_expensive_products();

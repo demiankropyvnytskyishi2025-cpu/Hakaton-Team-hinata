@@ -5,6 +5,18 @@ using namespace std;
 #include <string>
 #include "product_data.h"
 
+void show_all_products_menu() {
+    int category_choice;
+    cout << "Select a category (1-3): ";
+    cin >> category_choice;
+
+    for (int i = 0; i < product_catalogue.size(); i++) {
+        if (product_catalogue[i].category == category_choice) {
+            cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
+        }
+    }
+}
+
 void search_for_product() {
     cout<<"What product are you looking for?"<<endl;
     string search_name;
@@ -32,4 +44,10 @@ void search_for_product() {
             }
         }
     }
+}
+
+//the most expensive product
+
+void discount_for_expensive_products() {
+    cout << "bdjshbd";
 }

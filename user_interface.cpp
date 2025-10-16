@@ -2,13 +2,8 @@
 #include <string>
 
 #include "product_data.h"
-
-#include "buy_product.h"
-#include "search_for_product.h"
-//expensive
-#include "products_less_than_100.h"
-#include "products_costing_more_than_1000.h"
-#include "show_all_products_menu.h"
+#include "user_functions.h"
+#include "common_functions.h"
 
 using namespace std;
 

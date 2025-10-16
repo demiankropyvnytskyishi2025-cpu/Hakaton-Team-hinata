@@ -1,14 +1,6 @@
 #include <iostream>
 using namespace std;
 
-// #include "search_for_product.h"
-// #include "show_all_products_menu.h"
-// #include "add_new_product.h"
-// #include "products_costing_more_than_1000.h"
-// #include "change_price_of_product.h"
-// #include "delete_product.h"
-// #include "number_of_products.h"
-
 #include "user_interface.h"
 #include "admin_interface.h"
 
@@ -19,7 +11,7 @@ int main() {
     do {
         cout << "Type 1 for Admin" << endl;
         cout << "Type 2 for User" << endl;
-        cout << "Type 3 for Exit" << endl;
+        cout << "Type 0 for Exit" << endl;
         cin >> choice;
 
         if (choice == 1) {
