@@ -29,7 +29,6 @@ void buy_product() {
     }
 
     if (found) {
-        // Renumber IDs if needed
         int new_id = 1;
         for (auto& product : product_catalogue) {
             product.id = new_id++;
