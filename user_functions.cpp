@@ -6,16 +6,6 @@ using namespace std;
 #include "product_data.h"
 #include "user_interface.h"
 
-void count_the_number_of_products_cheaper_than_100() {
-    for (size_t i = 0; i < product_catalogue.size(); i++) {
-        if (product_catalogue[i].price > 1000.00) {
-            product_catalogue[i].price *= 0.9; // Apply 10% discount
-            cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
-        }
-    }
-    user_choice();
-}
-
 void buy_product() {
     string chosenName;
     cout << "What do you wanna buy?\nType name of the chosen product: " << endl;

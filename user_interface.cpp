@@ -19,32 +19,42 @@ void user_choice() {
     cout << "6 - show all the products" << endl;
     cout << "7 - exit to menu" << endl;
 
-    do{
-        cout << "Your choice: " << endl;
+    do {
+        cout << "Your choice: ";
         cin >> choice;
-    }while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7);
-    if (choice == 1){
-        cout << "You've chosen the option for buying the product" << endl;
-        buy_product();
-    } else if(choice == 2){
-        cout << "You've chosen the option for searching the product" << endl;
-        search_for_product();
-    } else if(choice == 3){
-        cout << "You've chosen the option for searching the most expensive product" << endl;
-        max_value_product();
-    } else if(choice == 4){
-        cout << "You've chosen the option for counting the number of products costing less than 100" << endl;
-        count_the_number_of_products_cheaper_than_100();
-    } else if(choice == 5){
-        cout << "You've chosen the option for making a discount for products costing more than 1000" << endl;
-        discount_for_expensive_products();
-    } else if(choice == 6){
-        cout << "You've chosen the option for showing all the products" << endl;
-        show_all_products_menu();
-    } else if(choice == 7){
-        cout << "You've chosen exiting to the menu" << endl;
-        main();
-    } else{
-        cout << "Sorry, not a feature yet, we're constantly improving";
+    } while (choice < 1 || choice > 7);
+
+    switch (choice) {
+        case 1:
+            cout << "You've chosen the option for buying the product" << endl;
+            buy_product();
+            break;
+        case 2:
+            cout << "You've chosen the option for searching the product" << endl;
+            search_for_product();
+            break;
+        case 3:
+            cout << "You've chosen the option for searching the most expensive product" << endl;
+            max_value_product();
+            break;
+        case 4:
+            cout << "You've chosen the option for counting the number of products costing less than 100" << endl;
+            count_the_number_of_products_cheaper_than_100();
+            break;
+        case 5:
+            cout << "You've chosen the option for making a discount for products costing more than 1000" << endl;
+            discount_for_expensive_products();
+            break;
+        case 6:
+            cout << "You've chosen the option for showing all the products" << endl;
+            show_all_products_menu();
+            break;
+        case 7:
+            cout << "You've chosen exiting to the menu" << endl;
+            main();
+            break;
+        default:
+            cout << "Sorry, not a feature yet, we're constantly improving" << endl;
+            break;
     }
 }
