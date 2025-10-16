@@ -2,7 +2,6 @@
 using namespace std;
 #include "product_data.h"
 
-// Ініціалізація глобального вектора товарів
 vector<Product> product_catalogue = {
     {1, "Smartphone", 1, "Electronics", 699.99},
     {2, "Laptop", 1, "Electronics", 999.99},
@@ -18,7 +17,6 @@ vector<Product> product_catalogue = {
     {12, "Microwave", 3, "Home & Kitchen", 99.99}
 };
 
-// Реалізація функції для показу меню категорій
 void show_categories_menu() {
     cout << "====All Categories Menu====" << endl;
     cout << "1. Electronics" << endl;
