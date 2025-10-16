@@ -75,7 +75,7 @@ void max_value_product() {
 void discount_for_expensive_products() {
     for (size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > 1000.00) {
-            product_catalogue[i].price *= 0.9; // Apply 10% discount
+            product_catalogue[i].price *= 0.9;
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
         }
     }
@@ -86,7 +86,7 @@ void discount_for_expensive_products() {
 void count_the_number_of_products_cheaper_than_100() {
     for (size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > 1000.00) {
-            product_catalogue[i].price *= 0.9; // Apply 10% discount
+            product_catalogue[i].price *= 0.9; 
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
         }
     }
