@@ -1,9 +1,13 @@
 #include <iostream>
 using namespace std;
-
 #include <vector>
 #include <string>
+
 #include "product_data.h"
+#include "admin_interface.h"
+#include "user_interface.h"
+#include "main.h"
+#include "session_state.h"
 
 void show_all_products_menu() {
     int category_choice;
@@ -15,6 +19,8 @@ void show_all_products_menu() {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
     }
+    if (is_admin) admin_choice();
+    else user_choice();
 }
 
 void search_for_product() {
@@ -44,10 +50,35 @@ void search_for_product() {
             }
         }
     }
+    if (is_admin) admin_choice();
+    else user_choice();
 }
 
-//the most expensive product
+void max_value_product() {
+    if (product_catalogue.empty()) {
+        cout << "Catalogue is empty." << endl;
+        return;
+    }
+
+    double maxValue = product_catalogue[0].price;
+    for (size_t i = 0; i < product_catalogue.size(); i++) {
+        if (product_catalogue[i].price > maxValue) {
+            maxValue = product_catalogue[i].price;
+        }
+    }
+
+    cout << "The biggest value is: " << maxValue << std::endl;
+    if (is_admin) admin_choice();
+    else user_choice();
+}
 
 void discount_for_expensive_products() {
-    cout << "bdjshbd";
+    for (size_t i = 0; i < product_catalogue.size(); i++) {
+        if (product_catalogue[i].price > 1000.00) {
+            product_catalogue[i].price *= 0.9; // Apply 10% discount
+            cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
+        }
+    }
+    if (is_admin) admin_choice();
+    else user_choice();
 }

@@ -1,19 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "product_data.h"
 #include "admin_functions.h"
 #include "common_functions.h"
-
-// #include "show_all_products_menu.h"
-// #include "search_for_product.h"
-// #include "add_new_product.h"
-// #include "change_price_of_product.h"
-// #include "delete_product.h"
-// #include "buy_product.h"
-// #include "number_of_products.h"
-// #include "products_less_than_100.h"
-// #include "products_costing_more_than_1000.h"
+#include "main.h"
 
 using namespace std;
 
@@ -29,11 +19,12 @@ void admin_choice() {
     cout << "7 - count the number of products costing less than 100" << endl;
     cout << "8 - do a discount for products costing more than 1000" << endl;
     cout << "9 - show all the products" << endl;
+    cout << "10 - exit to the menu" << endl;
 
     do{
         cout << "Your choice: " << endl;
         cin >> choice;
-    }while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8 && choice != 9);
+    }while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7 && choice != 8 && choice != 9 && choice != 10);
     if (choice == 1){
         cout << "You've chosen the option for adding the product" << endl;
         add_new_product();
@@ -45,6 +36,7 @@ void admin_choice() {
         search_for_product();
     } else if(choice == 4){
         cout << "You've chosen the option for searching the most expensive product" << endl;
+        max_value_product();
     } else if(choice == 5){
         cout << "You've chosen the option for changing the price of a product" << endl;
         change_price();
@@ -60,6 +52,9 @@ void admin_choice() {
     } else if(choice == 9){
         cout << "You've chosen the option for showing all the products" << endl;
         show_all_products_menu();
+    } else if(choice == 10){
+        cout << "You've chosen exiting to the menu" << endl;
+        main();
     } else{
         cout << "Sorry, not a feature yet, we're constantly improving";
     }

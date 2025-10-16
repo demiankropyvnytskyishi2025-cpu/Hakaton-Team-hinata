@@ -4,6 +4,7 @@ using namespace std;
 #include <string>
 
 #include "product_data.h"
+#include "user_interface.h"
 
 void count_the_number_of_products_cheaper_than_100() {
     for (size_t i = 0; i < product_catalogue.size(); i++) {
@@ -12,21 +13,47 @@ void count_the_number_of_products_cheaper_than_100() {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
         }
     }
+    user_choice();
 }
 
 void buy_product() {
-    cout << "What product do you want to buy?" << endl;
-    string new_product_name;
-    cin >> new_product_name;
+    string chosenName;
+    cout << "What do you wanna buy?\nType name of the chosen product: " << endl;
+    cin >> chosenName;
 
-    int product_id_after_buying = product_catalogue.size() - 1;
-    cout << "New product added successfully!" << endl;
+    bool found = false;
 
-    for (const auto& item : product_catalogue) {
-        cout << "ID: " << item.id
-             << " | Name: " << item.name
-             << " | Category Name: " << item.category_name
-             << " | Price: $" << item.price
-             << endl;
+    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+        if (product_catalogue[i].name == chosenName) {
+            cout << "Чудовий вибір!" << endl;
+            cout << "Deleting product:\n"
+                 << "ID: " << product_catalogue[i].id
+                 << " | Name: " << product_catalogue[i].name
+                 << " | Category: " << product_catalogue[i].category
+                 << " | Price: $" << product_catalogue[i].price << endl;
+
+            product_catalogue.erase(product_catalogue.begin() + i);
+            found = true;
+            break;
+        }
     }
+
+    if (found) {
+        // Renumber IDs if needed
+        int new_id = 1;
+        for (auto& product : product_catalogue) {
+            product.id = new_id++;
+        }
+
+        cout << "Updated catalogue: " << endl;
+        for (const auto& product : product_catalogue) {
+            cout << "ID: " << product.id
+                 << " | Name: " << product.name
+                 << " | Category: " << product.category
+                 << " | Price: $" << product.price << endl;
+        }
+    } else {
+        cout << "Product not found." << endl;
+    }
+    user_choice();
 }

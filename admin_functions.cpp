@@ -5,6 +5,7 @@ using namespace std;
 #include <algorithm>
 
 #include "product_data.h"
+#include "admin_interface.h"
 
 void add_new_product() {
     cout << "What's the name of the new product?" << endl;
@@ -49,6 +50,7 @@ void add_new_product() {
              << " | Price: $" << item.price
              << endl;
     }
+    admin_choice();
 }
 
 void delete_product() {
@@ -93,6 +95,7 @@ void delete_product() {
             break;
         }
     }
+    admin_choice();
 }
 
 void change_price() {
@@ -134,6 +137,7 @@ void change_price() {
     if (!found) {
         cout << "Product not found in the catalogue." << endl;
     }
+    admin_choice();
 }
 
 void count_the_total_number_of_products() {
@@ -170,4 +174,5 @@ void count_the_total_number_of_products() {
     {
         cout << "Error! Invalid option.";
     }
+    admin_choice();
 }

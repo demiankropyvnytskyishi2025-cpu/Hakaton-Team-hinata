@@ -1,9 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "product_data.h"
 #include "user_functions.h"
 #include "common_functions.h"
+#include "main.h"
 
 using namespace std;
 
@@ -17,11 +17,12 @@ void user_choice() {
     cout << "4 - count the number of products costing less than 100" << endl;
     cout << "5 - do a discount for products costing more than 1000" << endl;
     cout << "6 - show all the products" << endl;
+    cout << "7 - exit to menu" << endl;
 
     do{
         cout << "Your choice: " << endl;
         cin >> choice;
-    }while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6);
+    }while(choice != 1 && choice != 2 && choice != 3 && choice != 4 && choice != 5 && choice != 6 && choice != 7);
     if (choice == 1){
         cout << "You've chosen the option for buying the product" << endl;
         buy_product();
@@ -30,7 +31,7 @@ void user_choice() {
         search_for_product();
     } else if(choice == 3){
         cout << "You've chosen the option for searching the most expensive product" << endl;
-        //
+        max_value_product();
     } else if(choice == 4){
         cout << "You've chosen the option for counting the number of products costing less than 100" << endl;
         count_the_number_of_products_cheaper_than_100();
@@ -40,6 +41,9 @@ void user_choice() {
     } else if(choice == 6){
         cout << "You've chosen the option for showing all the products" << endl;
         show_all_products_menu();
+    } else if(choice == 7){
+        cout << "You've chosen exiting to the menu" << endl;
+        main();
     } else{
         cout << "Sorry, not a feature yet, we're constantly improving";
     }
