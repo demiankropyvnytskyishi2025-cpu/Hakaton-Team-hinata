@@ -20,7 +20,7 @@ void admin_choice() {
         cout << "6 - count the number of products" << endl;
         cout << "7 - count the number of products costing less than 100" << endl;
         cout << "8 - do a discount for products costing more than 1000" << endl;
-        cout << "9 - show all the products" << endl;
+        cout << "9 - show products in a specific category " << endl;
         cout << "10 - exit to the menu" << endl;
 
         do {
@@ -62,7 +62,7 @@ void admin_choice() {
                 discount_for_expensive_products();
                 break;
             case 9:
-                cout << "You chose to show all the products" << endl;
+                cout << "You chose to show all the products in a specific category" << endl;
                 show_all_products_menu();
                 break;
             case 10:

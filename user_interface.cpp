@@ -17,7 +17,7 @@ void user_choice() {
         cout << "3 - search for the most expensive product" << endl;
         cout << "4 - count the number of products costing less than 100" << endl;
         cout << "5 - do a discount for products costing more than 1000" << endl;
-        cout << "6 - show all the products" << endl;
+        cout << "6 - search for products by category" << endl;
         cout << "7 - exit to menu" << endl;
 
         do {
@@ -47,7 +47,7 @@ void user_choice() {
                 discount_for_expensive_products();
                 break;
             case 6:
-                cout << "You chose to show all the products" << endl;
+                cout << "You chosen the option for searching products by category" << endl;
                 show_all_products_menu();
                 break;
             case 7:

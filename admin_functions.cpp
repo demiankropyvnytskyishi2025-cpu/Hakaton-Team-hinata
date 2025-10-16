@@ -9,35 +9,34 @@
 using namespace std;
 
 void add_new_product() {
-    cout << "Enter the name of the new product: " << endl;
+    cout << "What's the name of the new product?" << endl;
     string new_product_name;
     cin >> new_product_name;
-
-    cout << "Enter the category of the new product: " << endl;
-    int new_product_category;
-    cin >> new_product_category;
-
-    cout << "Enter the price of the new product: " << endl;
     double new_product_price;
+
+    cout << "What's the price of the new product?" << endl;
     cin >> new_product_price;
+    
 
     string new_product_category_name;
-    if (new_product_category == 1) {
-        new_product_category_name = "Electronics";
-    } else if (new_product_category == 2) {
-        new_product_category_name = "Clothing";
-    } else if (new_product_category == 3) {
-        new_product_category_name = "Home & Kitchen";
-    } else {
-        cout << "Invalid category. Product not added." << endl;
-        return;
-    }
-
+    int new_product_category;
+    do {
+        cout << "What's the category name of the new product?" << endl;
+        cin >> new_product_category_name;
+        if (new_product_category_name == "Electronics") {
+            new_product_category = 1;
+        } else if (new_product_category_name == "Clothing") {
+            new_product_category = 2;
+        } else if (new_product_category_name == "Home & Kitchen") {
+            new_product_category = 3;
+        } else {
+            cout << "Invalid category. Product not added." << endl;
+        }
+    } while (new_product_category_name != "Electronics" && new_product_category_name != "Clothing" && new_product_category_name != "Home & Kitchen");
     int new_product_id = product_catalogue.size() + 1;
     product_catalogue.push_back({
         new_product_id,
         new_product_name,
-        new_product_category,
         new_product_category_name,
         new_product_price
     });
@@ -54,46 +53,42 @@ void add_new_product() {
 }
 
 void delete_product() {
-    while (true) {
-        cout << "\n==== Product Catalogue ====" << endl;
-        for (const auto& item : product_catalogue) {
-            cout << item.name << " | " << item.category_name << " | $" << item.price << endl;
-        }
+    string chosenName;
+    cout << "What product do you want to delete?\nType name of the chosen product: " << endl;
+    cin >> chosenName;
 
-        cout << "\nEnter the name of the product to delete (or type 'exit' to stop):" << endl;
-        string name_delete;
-        cin >> ws; 
-        getline(cin, name_delete);
+    bool found = false;
 
-        if (name_delete == "exit") break;
+    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+        if (product_catalogue[i].name == chosenName) {
+            cout << "Чудовий вибір!" << endl;
+            cout << "Deleting product:\n"
+                 << "ID: " << product_catalogue[i].id
+                 << " | Name: " << product_catalogue[i].name
+                 << " | Category: " << product_catalogue[i].category_name
+                 << " | Price: $" << product_catalogue[i].price << endl;
 
-        auto it = find_if(product_catalogue.begin(), product_catalogue.end(),
-                          [&name_delete](const Product& p) { return p.name == name_delete; });
-
-        if (it != product_catalogue.end()) {
-            cout << "Product found: " 
-                 << it->name << " | " 
-                 << it->category_name << " | $" 
-                 << it->price << endl;
-
-            cout << "Do you want to delete this product? (yes/no)" << endl;
-            string delete_choice;
-            getline(cin, delete_choice);
-
-            if (delete_choice == "yes" || delete_choice == "1") {
-                product_catalogue.erase(it);
-                cout << "Product deleted successfully!" << endl;
-            } else {
-                cout << "No changes made." << endl;
-            }
-        } else {
-            cout << "Product not found in the catalogue." << endl;
-        }
-
-        if (product_catalogue.empty()) {
-            cout << "Catalogue is empty. Exiting." << endl;
+            product_catalogue.erase(product_catalogue.begin() + i);
+            found = true;
             break;
         }
+    }
+
+    if (found) {
+        int new_id = 1;
+        for (size_t i = 0; i < product_catalogue.size(); ++i) {
+            product_catalogue[i].id = new_id++;
+        }
+
+        cout << "Updated catalogue: " << endl;
+        for (size_t i = 0; i < product_catalogue.size(); ++i) {
+            cout << "ID: " << product_catalogue[i].id
+                 << " | Name: " << product_catalogue[i].name
+                 << " | Category: " << product_catalogue[i].category_name
+                 << " | Price: $" << product_catalogue[i].price << endl;
+        }
+    } else {
+        cout << "Product not found." << endl;
     }
 }
 
@@ -104,15 +99,15 @@ void change_price() {
 
     bool found = false;
 
-    for (auto& item : product_catalogue) {
-        if (item.name == name_change_price) {
+    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+        if (product_catalogue[i].name == name_change_price) {
             found = true;
             cout 
-                 << " | Name: " << item.name
-                 << " | Category: " << item.category_name
-                 << " | Price: $" << item.price
-                 << " | Amount: " << item.amount
-                 << "\nDo you want to change its price? (1 for yes, 0 for no): "
+                 << " | Name: " << product_catalogue[i].name
+                 << " | Category: " << product_catalogue[i].category_name
+                 << " | Price: $" << product_catalogue[i].price
+                 << " | Amount: " << product_catalogue[i].amount
+                 << "\nDo you want to change its price? (1 for yes, 0 for no)"
                  << endl;
 
             int change_choice;
@@ -122,7 +117,7 @@ void change_price() {
                 cout << "Enter the new price: " << endl;
                 double new_price;
                 cin >> new_price;
-                item.price = new_price;
+                product_catalogue[i].price = new_price;
                 cout << "Price updated successfully!" << endl;
             } else if (change_choice == 0) {
                 cout << "No changes made." << endl;
@@ -150,14 +145,16 @@ void count_the_total_number_of_products() {
 
     if (choice == 1)
     {
-        cout << "Enter the category number: ";
-        cin >> cat_number;
+        cout << "Enter the category name: ";
+        string cat_name;
+        cin >> cat_name;
+    
 
         int count = 0;
 
-        for (auto &n : product_catalogue)
+        for (size_t i = 0; i < product_catalogue.size(); ++i)
         {
-            if (n.category == cat_number)
+            if (product_catalogue[i].category_name == cat_name)
             {
                 count++;
             }
@@ -170,6 +167,6 @@ void count_the_total_number_of_products() {
     }
     else
     {
-        cout << "Error! Invalid option.";
+        cout << "Error! Invalid option." << endl;
     }
 }

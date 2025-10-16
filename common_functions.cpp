@@ -10,8 +10,12 @@
 using namespace std;
 
 void show_all_products_menu() {
-    int category_choice;
-    cout << "Select a category (1-3): ";
+    string category_choice;
+    cout << "====All Categories Menu====" << endl;
+    cout << "1. Electronics" << endl;
+    cout << "2. Clothing" << endl;
+    cout << "3. Home & Kitchen" << endl;
+    cout << "Select a category: ";
     cin >> category_choice;
 
     for (std::size_t i = 0; i < product_catalogue.size(); i++) {
@@ -26,26 +30,29 @@ void search_for_product() {
     string search_name;
     cin >> search_name;
 
-    for (auto& item : product_catalogue) {
-        if (item.name == search_name) {
+    for (int i = 0; i < product_catalogue.size(); i++) {
+        if (product_catalogue[i].name == search_name) {
             cout 
-                 << " | Name: " << item.name
-                 << " | Category: " << item.category_name
-                 << " | Price: $" << item.price
-                 << " | Amount: " << item.amount
+                 << " | Name: " << product_catalogue[i].name
+                 << " | Category: " << product_catalogue[i].category_name
+                 << " | Price: $" << product_catalogue[i].price
+                 << " | Amount: " << product_catalogue[i].amount
                  << "do you want to buy it? (1 for yes, 0 for no)"
                  << endl;
 
             int buy_choice;
             cin >> buy_choice;
             
-            if (buy_choice == 1) {
-                cout << "Thank you for your purchase!" << endl;
-                item.amount -= 1;
-            }
-            else {
-                cout << "Maybe next time!" << endl;
-            }
+        if (buy_choice == 1) {
+            cout << "Thank you for your purchase!" << endl;
+            product_catalogue[i].amount -= 1;
+        }
+        else if (buy_choice == 0) {
+            cout << "Maybe next time!" << endl;            
+    
+        }
+        else {
+            cout << "Invalid choice." << endl;
         }
     }
 }
@@ -55,15 +62,16 @@ void max_value_product() {
         cout << "Catalogue is empty." << endl;
         return;
     }
-
-    double maxValue = 0;
-    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
+    string maxName = product_catalogue[0].name;
+    double maxValue = product_catalogue[0].price;
+    for (int i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > maxValue) {
             maxValue = product_catalogue[i].price;
+            maxName = product_catalogue[i].name;
         }
     }
 
-    cout << "The biggest value is: " << maxValue << endl;
+    cout << "The biggest value is: " << maxName << " - " << maxValue << std::endl;
 }
 
 void discount_for_expensive_products() {
@@ -77,11 +85,11 @@ void discount_for_expensive_products() {
 
 void count_the_number_of_products_cheaper_than_100() {
     int count = 0;
-    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
+    for (size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price < 100.00) {
             count++;
+            cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: " << product_catalogue[i].price << endl;
         }
     }
-
-    cout << "Number of products cheaper than 100: " << count << endl;
+    cout << "Total products cheaper than $100: " << count << endl;
 }
