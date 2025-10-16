@@ -7,10 +7,10 @@
 struct Product {
     int id;
     std::string name;
-    int category;
+    
     std::string category_name;
     double price;
-    int amount = 100;
+    int amount = 3;
 };
 
 extern std::vector<Product> product_catalogue;

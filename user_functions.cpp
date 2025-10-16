@@ -13,36 +13,28 @@ void buy_product() {
 
     bool found = false;
 
-    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+    for (int i = 0; i < product_catalogue.size(); ++i) {
         if (product_catalogue[i].name == chosenName) {
-            cout << "Чудовий вибір!" << endl;
-            cout << "Deleting product:\n"
+            cout << "Incredible choice!" << endl;
+            cout << "Buying product:\n"
                  << "ID: " << product_catalogue[i].id
                  << " | Name: " << product_catalogue[i].name
-                 << " | Category: " << product_catalogue[i].category
+                 << " | Category: " << product_catalogue[i].category_name
                  << " | Price: $" << product_catalogue[i].price << endl;
 
-            product_catalogue.erase(product_catalogue.begin() + i);
+            product_catalogue[i].amount--;
             found = true;
+            cout << "Remaining amount: " << product_catalogue[i].amount << endl;
+            if (product_catalogue[i].amount <= 0) {
+                product_catalogue.erase(product_catalogue.begin() + i);
+                cout << "Product is out of stock and has been removed from the catalogue." << endl;
+            }
             break;
         }
     }
 
-    if (found) {
-        int new_id = 1;
-        for (auto& product : product_catalogue) {
-            product.id = new_id++;
-        }
-
-        cout << "Updated catalogue: " << endl;
-        for (const auto& product : product_catalogue) {
-            cout << "ID: " << product.id
-                 << " | Name: " << product.name
-                 << " | Category: " << product.category
-                 << " | Price: $" << product.price << endl;
-        }
-    } else {
-        cout << "Product not found." << endl;
+    if (!found) {
+        cout << "Sorry, we don't have this product." << endl;
     }
     user_choice();
 }
