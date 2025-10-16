@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 
-// Структура товару
 struct Product {
     int id;
     std::string name;
@@ -14,10 +13,7 @@ struct Product {
     int amount = 100;
 };
 
-// Глобальний вектор товарів (оголошення)
 extern std::vector<Product> product_catalogue;
-
-// Функція для показу меню категорій
 void show_categories_menu();
 void show_all_products_menu();
 void search_for_product();
