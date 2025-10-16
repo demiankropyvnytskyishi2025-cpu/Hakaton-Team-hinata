@@ -1,11 +1,11 @@
 #include <iostream>
-using namespace std;
 #include <vector>
 #include <string>
 #include <algorithm>
-
 #include "product_data.h"
 #include "admin_interface.h"
+
+using namespace std;
 
 void add_new_product() {
     cout << "What's the name of the new product?" << endl;
@@ -130,7 +130,7 @@ void change_price() {
             } else {
                 cout << "Invalid choice." << endl;
             }
-            break; // Exit loop after finding the product
+            break;
         }
     }
 
