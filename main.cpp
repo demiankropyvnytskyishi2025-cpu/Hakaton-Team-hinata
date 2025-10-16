@@ -1,5 +1,4 @@
 #include <iostream>
-#include "session_state.h"
 #include "admin_interface.h"
 #include "user_interface.h"
 
@@ -8,34 +7,33 @@ using namespace std;
 int main() {
     int choice;
 
-    cout << "====Choose an option====" << endl;
+    while (true) {
+        cout << "====Choose an option====" << endl;
 
-    do {
-        cout << "Type 1 for Admin" << endl;
-        cout << "Type 2 for User" << endl;
-        cout << "Type 0 for Exit" << endl;
-        cout << "Your choice: ";
-        cin >> choice;
+        do {
+            cout << "Type 1 for Admin" << endl;
+            cout << "Type 2 for User" << endl;
+            cout << "Type 0 for Exit" << endl;
+            cout << "Your choice: ";
+            cin >> choice;
+            
+            switch (choice) {
+                case 1: 
+                    cout << "You are an Admin" << endl;
+                    admin_choice();
+                    break;
+                case 2:
+                    cout << "You are a User" << endl;
+                    user_choice();
+                    break;
+                case 0:
+                    cout << "Exiting..." << endl;
+                    return 0;
+                default:
+                    cout << "Invalid choice, please try again." << endl;
+                    break;
+            }
 
-        if (choice == 1) {
-            is_admin = true;
-            cout << "You are an Admin" << endl;
-            admin_choice();
-        }
-        else if (choice == 2) {
-            is_admin = false;
-            cout << "You are a User" << endl;
-            user_choice();
-        }
-        else if (choice == 0) {
-            cout << "Exiting..." << endl;
-            break;
-        }
-        else {
-            cout << "Invalid choice, please try again." << endl;
-        }
-
-    } while (choice != 0 && choice != 1 && choice != 2);
-
-    return 0;
+        } while (choice != 0 && choice != 1 && choice != 2);
+    }
 }

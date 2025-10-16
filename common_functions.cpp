@@ -1,5 +1,4 @@
 #include <iostream>
-using namespace std;
 #include <vector>
 #include <string>
 
@@ -7,24 +6,23 @@ using namespace std;
 #include "admin_interface.h"
 #include "user_interface.h"
 #include "main.h"
-#include "session_state.h"
+
+using namespace std;
 
 void show_all_products_menu() {
     int category_choice;
     cout << "Select a category (1-3): ";
     cin >> category_choice;
 
-    for (int i = 0; i < product_catalogue.size(); i++) {
+    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].category == category_choice) {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
     }
-    if (is_admin) admin_choice();
-    else user_choice();
 }
 
 void search_for_product() {
-    cout<<"What product are you looking for?"<<endl;
+    cout << "What product are you looking for?" << endl;
     string search_name;
     cin >> search_name;
 
@@ -50,8 +48,6 @@ void search_for_product() {
             }
         }
     }
-    if (is_admin) admin_choice();
-    else user_choice();
 }
 
 void max_value_product() {
@@ -60,36 +56,32 @@ void max_value_product() {
         return;
     }
 
-    double maxValue = product_catalogue[0].price;
-    for (size_t i = 0; i < product_catalogue.size(); i++) {
+    double maxValue = 0;
+    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > maxValue) {
             maxValue = product_catalogue[i].price;
         }
     }
 
-    cout << "The biggest value is: " << maxValue << std::endl;
-    if (is_admin) admin_choice();
-    else user_choice();
+    cout << "The biggest value is: " << maxValue << endl;
 }
 
 void discount_for_expensive_products() {
-    for (size_t i = 0; i < product_catalogue.size(); i++) {
+    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > 1000.00) {
             product_catalogue[i].price *= 0.9;
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
         }
     }
-    if (is_admin) admin_choice();
-    else user_choice();
 }
 
 void count_the_number_of_products_cheaper_than_100() {
-    for (size_t i = 0; i < product_catalogue.size(); i++) {
-        if (product_catalogue[i].price > 1000.00) {
-            product_catalogue[i].price *= 0.9; 
-            cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
+    int count = 0;
+    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
+        if (product_catalogue[i].price < 100.00) {
+            count++;
         }
     }
-    if (is_admin) admin_choice();
-    else user_choice();
+
+    cout << "Number of products cheaper than 100: " << count << endl;
 }

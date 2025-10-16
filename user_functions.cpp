@@ -1,10 +1,11 @@
 #include <iostream>
-using namespace std;
 #include <vector>
 #include <string>
 
 #include "product_data.h"
 #include "user_interface.h"
+
+using namespace std;
 
 void buy_product() {
     string chosenName;
@@ -13,7 +14,7 @@ void buy_product() {
 
     bool found = false;
 
-    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+    for (std::size_t i = 0; i < product_catalogue.size(); ++i) {
         if (product_catalogue[i].name == chosenName) {
             cout << "Чудовий вибір!" << endl;
             cout << "Deleting product:\n"
@@ -44,5 +45,4 @@ void buy_product() {
     } else {
         cout << "Product not found." << endl;
     }
-    user_choice();
 }

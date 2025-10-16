@@ -2,21 +2,22 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+
 #include "product_data.h"
 #include "admin_interface.h"
 
 using namespace std;
 
 void add_new_product() {
-    cout << "What's the name of the new product?" << endl;
+    cout << "Enter the name of the new product: " << endl;
     string new_product_name;
     cin >> new_product_name;
 
-    cout << "What's the category of the new product?" << endl;
+    cout << "Enter the category of the new product: " << endl;
     int new_product_category;
     cin >> new_product_category;
 
-    cout << "What's the price of the new product?" << endl;
+    cout << "Enter the price of the new product: " << endl;
     double new_product_price;
     cin >> new_product_price;
 
@@ -50,7 +51,6 @@ void add_new_product() {
              << " | Price: $" << item.price
              << endl;
     }
-    admin_choice();
 }
 
 void delete_product() {
@@ -95,7 +95,6 @@ void delete_product() {
             break;
         }
     }
-    admin_choice();
 }
 
 void change_price() {
@@ -113,14 +112,14 @@ void change_price() {
                  << " | Category: " << item.category_name
                  << " | Price: $" << item.price
                  << " | Amount: " << item.amount
-                 << "\nDo you want to change its price? (1 for yes, 0 for no)"
+                 << "\nDo you want to change its price? (1 for yes, 0 for no): "
                  << endl;
 
             int change_choice;
             cin >> change_choice;
 
             if (change_choice == 1) {
-                cout << "What's the new price?" << endl;
+                cout << "Enter the new price: " << endl;
                 double new_price;
                 cin >> new_price;
                 item.price = new_price;
@@ -137,7 +136,6 @@ void change_price() {
     if (!found) {
         cout << "Product not found in the catalogue." << endl;
     }
-    admin_choice();
 }
 
 void count_the_total_number_of_products() {
@@ -164,15 +162,14 @@ void count_the_total_number_of_products() {
                 count++;
             }
         }
-        cout << "The number of products in the category = " << count << endl;
+        cout << "The number of products in the category: " << count << endl;
     }
     else if (choice == 2)
     {
-        cout << "The total number of products in the store = " << product_catalogue.size() << endl;
+        cout << "The total number of products in the store: " << product_catalogue.size() << endl;
     }
     else
     {
         cout << "Error! Invalid option.";
     }
-    admin_choice();
 }

@@ -1,6 +1,9 @@
 #include <iostream>
-using namespace std;
+#include <vector>
+
 #include "product_data.h"
+
+using namespace std;
 
 vector<Product> product_catalogue = {
     {1, "Smartphone", 1, "Electronics", 699.99},
