@@ -3,7 +3,6 @@
 
 #include "user_functions.h"
 #include "common_functions.h"
-#include "main.h"
 
 using namespace std;
 

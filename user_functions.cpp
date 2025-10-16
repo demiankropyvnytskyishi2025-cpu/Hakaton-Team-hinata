@@ -14,17 +14,13 @@ void buy_product() {
 
     bool found = false;
 
-<<<<<<< HEAD
     for (std::size_t i = 0; i < product_catalogue.size(); ++i) {
-=======
-    for (int i = 0; i < product_catalogue.size(); ++i) {
->>>>>>> 89bf558c3a8048ad54f6473b7a88b7279077ad56
         if (product_catalogue[i].name == chosenName) {
             cout << "Incredible choice!" << endl;
             cout << "Buying product:\n"
                  << "ID: " << product_catalogue[i].id
                  << " | Name: " << product_catalogue[i].name
-                 << " | Category: " << product_catalogue[i].category
+                 << " | Category: " << product_catalogue[i].category_name
                  << " | Price: $" << product_catalogue[i].price << endl;
 
             product_catalogue[i].amount--;

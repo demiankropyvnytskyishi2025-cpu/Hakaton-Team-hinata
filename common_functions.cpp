@@ -5,7 +5,6 @@
 #include "product_data.h"
 #include "admin_interface.h"
 #include "user_interface.h"
-#include "main.h"
 
 using namespace std;
 
@@ -19,7 +18,7 @@ void show_all_products_menu() {
     cin >> category_choice;
 
     for (std::size_t i = 0; i < product_catalogue.size(); i++) {
-        if (product_catalogue[i].category == category_choice) {
+        if (product_catalogue[i].category_name == category_choice) {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
     }
@@ -42,17 +41,16 @@ void search_for_product() {
 
             int buy_choice;
             cin >> buy_choice;
-            
-        if (buy_choice == 1) {
-            cout << "Thank you for your purchase!" << endl;
-            product_catalogue[i].amount -= 1;
-        }
-        else if (buy_choice == 0) {
-            cout << "Maybe next time!" << endl;            
-    
-        }
-        else {
-            cout << "Invalid choice." << endl;
+            if (buy_choice == 1) {
+                cout << "Thank you for your purchase!" << endl;
+                product_catalogue[i].amount -= 1;
+            }
+            else if (buy_choice == 0) {
+                cout << "Maybe next time!" << endl;
+            }
+            else {
+                cout << "Invalid choice." << endl;
+            }
         }
     }
 }
