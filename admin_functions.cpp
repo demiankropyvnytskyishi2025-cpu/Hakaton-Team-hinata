@@ -13,28 +13,20 @@ void add_new_product() {
     string new_product_name;
     cin >> new_product_name;
     double new_product_price;
-
-    do{
-        cout << "What's the price of the new product?" << endl;
-        cin >> new_product_price;
-    } while(new_product_price < 0);
+    
+    cout << "What's the price of the new product?" << endl;
+    cin >> new_product_price;
+    if (new_product_price < 0) {
+        cout << "Invalid price. Please try again." << endl;
+        return;
+    }
     
 
     string new_product_category_name;
-    int new_product_category;
-    do {
-        cout << "What's the category name of the new product?" << endl;
-        cin >> new_product_category_name;
-        if (new_product_category_name == "Electronics") {
-            new_product_category = 1;
-        } else if (new_product_category_name == "Clothing") {
-            new_product_category = 2;
-        } else if (new_product_category_name == "Home & Kitchen") {
-            new_product_category = 3;
-        } else {
-            cout << "Invalid category. Product not added." << endl;
-        }
-    } while (new_product_category_name != "Electronics" && new_product_category_name != "Clothing" && new_product_category_name != "Home & Kitchen");
+    cout << "What's the category of the new product?" << endl;
+    cin >> new_product_category_name;
+   
+    
     int new_product_id = product_catalogue.size() + 1;
     product_catalogue.push_back({
         new_product_id,
@@ -45,14 +37,13 @@ void add_new_product() {
 
     cout << "New product added successfully!" << endl;
 
-    for (const auto& item : product_catalogue) {
-        cout << "ID: " << item.id
-             << " | Name: " << item.name
-             << " | Category Name: " << item.category_name
-             << " | Price: $" << item.price
+    for (size_t i = 0; i < product_catalogue.size(); ++i) {
+        cout << "ID: " << product_catalogue[i].id
+             << " | Name: " << product_catalogue[i].name
+             << " | Category Name: " << product_catalogue[i].category_name
+             << " | Price: $" << product_catalogue[i].price
              << endl;
     }
-    cout << endl;
 }
 
 void delete_product() {
