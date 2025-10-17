@@ -22,6 +22,7 @@ void user_choice() {
         do {
             cout << "Your choice: ";
             cin >> choice;
+            cout << endl;
         } while (choice < 1 || choice > 7);
 
         switch (choice) {

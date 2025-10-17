@@ -37,4 +37,5 @@ void buy_product() {
     if (!found) {
         cout << "Sorry, we don't have this product." << endl;
     }
+    cout << endl;
 }

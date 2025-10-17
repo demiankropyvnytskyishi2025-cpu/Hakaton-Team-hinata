@@ -50,6 +50,7 @@ void add_new_product() {
              << " | Price: $" << item.price
              << endl;
     }
+    cout << endl;
 }
 
 void delete_product() {
@@ -90,6 +91,7 @@ void delete_product() {
     } else {
         cout << "Product not found." << endl;
     }
+    cout << endl;
 }
 
 void change_price() {
@@ -131,6 +133,7 @@ void change_price() {
     if (!found) {
         cout << "Product not found in the catalogue." << endl;
     }
+    cout << endl;
 }
 
 void count_the_total_number_of_products() {
@@ -169,4 +172,5 @@ void count_the_total_number_of_products() {
     {
         cout << "Error! Invalid option." << endl;
     }
+    cout << endl;
 }

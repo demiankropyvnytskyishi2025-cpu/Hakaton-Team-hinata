@@ -25,6 +25,7 @@ void admin_choice() {
         do {
             cout << "Your choice: ";
             cin >> choice;
+            cout << endl;
         } while (choice < 1 || choice > 10);
 
         switch (choice) {

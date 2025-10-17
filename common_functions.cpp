@@ -23,6 +23,7 @@ void show_all_products_menu() {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
     }
+    cout << endl;
 }
 
 void search_for_product() {
@@ -54,6 +55,7 @@ void search_for_product() {
             }
         }
     }
+    cout << endl;
 }
 
 void max_value_product() {
@@ -71,6 +73,7 @@ void max_value_product() {
     }
 
     cout << "The biggest value is: " << maxName << " - " << maxValue << endl;
+    cout << endl;
 }
 
 void discount_for_expensive_products() {
@@ -80,6 +83,7 @@ void discount_for_expensive_products() {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
         }
     }
+    cout << endl;
 }
 
 void count_the_number_of_products_cheaper_than_100() {
@@ -91,4 +95,5 @@ void count_the_number_of_products_cheaper_than_100() {
         }
     }
     cout << "Total products cheaper than $100: " << count << endl;
+    cout << endl;
 }
