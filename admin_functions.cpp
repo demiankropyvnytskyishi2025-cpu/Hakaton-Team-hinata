@@ -14,8 +14,10 @@ void add_new_product() {
     cin >> new_product_name;
     double new_product_price;
 
-    cout << "What's the price of the new product?" << endl;
-    cin >> new_product_price;
+    do{
+        cout << "What's the price of the new product?" << endl;
+        cin >> new_product_price;
+    } while(new_product_price < 0);
     
 
     string new_product_category_name;
