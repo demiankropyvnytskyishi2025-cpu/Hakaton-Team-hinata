@@ -8,6 +8,7 @@ int main() {
     int choice;
 
     while (true) {
+        cout << "MINI SHOP MANAGER PRO" << endl;
         cout << "====Choose an option====" << endl;
 
         do {

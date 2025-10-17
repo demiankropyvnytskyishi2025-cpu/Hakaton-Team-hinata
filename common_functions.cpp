@@ -1,4 +1,5 @@
 #include <iostream>
+using namespace std;
 #include <vector>
 #include <string>
 
@@ -17,7 +18,7 @@ void show_all_products_menu() {
     cout << "Select a category: ";
     cin >> category_choice;
 
-    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
+    for (size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].category_name == category_choice) {
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", Price: $" << product_catalogue[i].price << endl;
         }
@@ -69,11 +70,11 @@ void max_value_product() {
         }
     }
 
-    cout << "The biggest value is: " << maxName << " - " << maxValue << std::endl;
+    cout << "The biggest value is: " << maxName << " - " << maxValue << endl;
 }
 
 void discount_for_expensive_products() {
-    for (std::size_t i = 0; i < product_catalogue.size(); i++) {
+    for (size_t i = 0; i < product_catalogue.size(); i++) {
         if (product_catalogue[i].price > 1000.00) {
             product_catalogue[i].price *= 0.9;
             cout << "ID: " << product_catalogue[i].id << ", Name: " << product_catalogue[i].name << ", New Price after discount 10%: " << product_catalogue[i].price << endl;
